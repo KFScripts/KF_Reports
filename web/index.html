@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiveM Report System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-transparent">
+    <template id="report-item-template">
+        <div class="neon-border bg-opacity-10 bg-blue-900 p-3 rounded">
+            <div class="flex justify-between items-start">
+                <div>
+                    <span class="neon-text text-sm">#<span class="report-id">ID</span> | <span class="report-type">Report Type</span></span>
+                    <p class="text-gray-300 text-xs mt-1">Player ID: <span class="player-id">PlayerID</span></p>
+                </div>
+                <span class="status-label text-xs px-2 py-1 rounded"></span>
+            </div>
+            <p class="text-gray-400 mt-2 text-xs report-description">Description</p>
+            <div class="mt-3 flex justify-end space-x-2">
+                <button class="text-xs px-2 py-1 rounded neon-green bring-button">BRING</button>
+                <button class="text-xs px-2 py-1 rounded neon-yellow teleport-button">TELEPORT</button>
+                <button class="text-xs px-2 py-1 rounded neon-button resolve-button">RESOLVE</button>
+                <button class="text-xs px-2 py-1 rounded pink-button reject-button">REJECT</button>
+            </div>
+        </div>
+    </template>
+    
+    <div id="playerReportScreen" class="cyberpunk-container w-full max-w-lg rounded-lg overflow-hidden relative screen">
+        <div class="relative overflow-hidden">
+            <div class="bg-gradient-to-r from-purple-900 to-black px-6 py-4 flex justify-between items-center">
+                <h1 class="text-xl font-bold neon-text glitch-effect" data-text="REPORT SYSTEM">NEW REPORT</h1>
+                <div class="flex space-x-1">
+                    <button class="w-5 h-5 rounded-full bg-red-500 flex items-center justify-center" id="close_ui" onclick="closeUi()">
+                        <span class="text-xs text-white font-bolder pointer-events-none">X</span>
+                    </button>
+                </div>
+            </div>
+            <div class="scanner-line"></div>
+        </div>
+        
+        <div class="p-6">
+            <div class="mb-3">
+                <label class="block mb-1 text-xs font-medium neon-yellow w-full">REPORT TYPE</label>
+                <select class="w-full px-3 py-2 text-sm rounded">
+                    <option>Bug</option>
+                    <option>Player</option>
+                    <option>General Question</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="block mb-1 text-xs font-medium neon-yellow">DESCRIPTION</label>
+                <textarea class="w-full px-3 py-2 text-sm rounded h-32" placeholder="Describe the issue in detail..."></textarea>
+            </div>
+            
+            <div class="mt-6 flex justify-end space-x-3">
+                <button class="px-4 py-2 text-xs font-medium rounded pink-button" onclick="closeUi()">CANCEL</button>
+                <button class="px-4 py-2 text-xs font-medium rounded neon-button" onclick="submitReport()">SUBMIT REPORT</button>
+            </div>
+        </div>
+        
+        <div class="px-6 py-3 bg-black bg-opacity-50 text-gray-500 text-xs flex justify-between items-center">
+            <div class="text-right" id="server_name">KFDev</div>
+        </div>
+    </div>
+    
+    <div id="adminReportScreen" class="cyberpunk-container w-full max-w-lg rounded-lg overflow-hidden relative screen">
+        <div class="relative overflow-hidden">
+            <div class="bg-gradient-to-r from-purple-900 to-black px-6 py-4 flex justify-between items-center">
+                <h1 class="text-xl font-bold neon-pink glitch-effect" data-text="REPORT LIST">REPORTS LIST</h1>
+                <div class="flex space-x-1">
+                    <button class="w-5 h-5 rounded-full bg-red-500 flex items-center justify-center" id="close_ui" onclick="closeUi()">
+                        <span class="text-xs text-white font-bolder pointer-events-none">X</span>
+                    </button>
+                </div>
+            </div>
+            <div class="scanner-line"></div>
+        </div>
+        
+        <div class="bg-black bg-opacity-50 px-6 py-3 flex justify-between items-center border-b border-gray-800">
+            <div class="flex space-x-3">
+                <select class="px-2 py-1 text-xs rounded">
+                    <option>All Reports</option>
+                    <option>Bug</option>
+                    <option>Player</option>
+                    <option>General Question</option>
+                </select>
+                <select class="px-2 py-1 text-xs rounded">
+                    <option>All Status</option>
+                    <option>Pending</option>
+                    <option>Resolved</option>
+                    <option>Rejected</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" placeholder="Search..." class="px-2 py-1 text-xs rounded w-32">
+            </div>
+        </div>
+        
+        <div class="p-4 max-h-96 overflow-y-auto">
+            <h2 class="text-sm font-medium neon-yellow mb-3">REPORT LIST</h2>
+            
+            <div class="space-y-3" id="report-list">
+
+            </div>
+        </div>
+        
+        <div class="px-6 py-3 bg-black bg-opacity-50 text-gray-500 text-xs flex justify-between items-center">
+            <div>REPORT LIST</div>
+            <div class="flex items-center">
+                <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                <span>ONLINE ADMINS: <span id="online-admins">3</span></span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
