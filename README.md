@@ -1,6 +1,6 @@
 # KF Reports System
 
-KF Reports System is a comprehensive reporting system for FiveM servers. It allows players to submit reports and administrators to manage them efficiently through an intuitive UI.
+KF Reports System  allows players to submit reports and administrators to manage them efficiently through an intuitive UI.
 
 ## Features
 
@@ -8,8 +8,6 @@ KF Reports System is a comprehensive reporting system for FiveM servers. It allo
 - **Admin Management**: Admins can view, resolve, or reject reports.
 - **Player Actions**: Admins can teleport to or bring players directly from the report interface.
 - **Customizable Framework**: Supports both ESX and QBCore frameworks.
-- **Notifications**: Configurable notification system for both players and admins.
-- **Stylish UI**: Cyberpunk-inspired design with responsive elements.
 
 ## Installation
 
