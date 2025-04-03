@@ -18,7 +18,9 @@ KF Reports System is a comprehensive reporting system for FiveM servers. It allo
 
 ## Usage
 - **Player Command**: `/report`
-![player](https://github.com/user-attachments/assets/52e828d6-ad2c-4701-ae26-7f71e9b1f598)
+![player](https://github.com/user-attachments/assets/19269198-87bb-4ada-8aa8-d2f4eb5dbe38)
+
+
 
 
 - **Admin Command**: `/reports`
