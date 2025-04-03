@@ -33,3 +33,21 @@ KF Reports System is a comprehensive reporting system for FiveM servers. It allo
 - Reject: Mark a report as rejected.
 - Teleport: Teleport to the player who submitted the report.
 - Bring: Bring the player to the admin.
+
+## Development
+
+Feel free to contribute to the development of this script. Fork the repository, make your changes, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+
+- **Discord**: [KFDev Discord](https://discord.gg/kfdev)
+- **Tebex**: [KFDev Tebex](https://kfdev.tebex.io)
+- **Documentation**: [KFDev Documentation](https://docs.kfdev.it/)
+
+---
+
+Developed by KFDev.
