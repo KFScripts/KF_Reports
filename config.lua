@@ -14,7 +14,7 @@
 
 Config = {}
 
-Config.Framework = 'esx' -- Change to 'qbcore' if using QBCore
+Config.Framework = 'esx' -- Change to 'qb-core' if using QBCore
 
 Config.AdminGroups = {
     'admin', 
@@ -27,7 +27,7 @@ Config.AdminGroups = {
 Config.Notify = function(msg, type)
     if Config.Framework == 'esx' then
         TriggerEvent('esx:showNotification', msg)
-    elseif Config.Framework == 'qbcore' then
+    elseif Config.Framework == 'qb-core' then
         QBCore.Functions.Notify(msg, type)
     end
 end

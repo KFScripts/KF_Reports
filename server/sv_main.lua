@@ -14,7 +14,7 @@ local function isAdmin(source)
 				end
 			end
 		end
-	elseif Config.Framework == 'qbcore' then
+	elseif Config.Framework == 'qb-core' then
 		local Player = QBCore.Functions.GetPlayer(source)
 		if Player then
 			for _, group in ipairs(Config.AdminGroups) do
